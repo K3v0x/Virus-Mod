@@ -1,16 +1,30 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+   "modid": "examplemod",
+   "name": "Example Mod",
+   "description": "Example placeholder mod.",
+   "version": "${version}",
+   "mcversion": "${mcversion}",
+   "url": "",
+   "updateUrl": "",
+   "authorList": ["ExampleDude"],
+   "credits": "The Forge and FML guys, for making this example",
+   "logoFile": "",
+   "screenshots": [],
+   "dependencies": []
+ },
+ {
+   "modid": "virusmod",
+   "name": "Infection Mod - Reloaded",
+   "description": "Brings fun and destruction together.",
+   "version": "1.0",
+   "mcversion": "${mcversion}",
+   "url": "",
+   "updateUrl": "",
+   "authorList": ["Kev and Coca22Coca"],
+   "credits": "The Forge and FML guys, for making this example",
+   "logoFile": "",
+   "screenshots": [],
+   "dependencies": []
+ }
 ]
