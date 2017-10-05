@@ -15,8 +15,7 @@
         "south": "virusmod:blocks/grassvirus_side",
         "west": "virusmod:blocks/grassvirus_side",
         "up": "virusmod:blocks/grassvirus_up",
-        "down": "virusmod:blocks/grassvirus_down",
-        "end": "blocks/mycelium"
+        "down": "virusmod:blocks/grassvirus_down"
       },
       "model": "cube_column"
     }],
