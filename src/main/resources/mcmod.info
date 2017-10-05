@@ -23,7 +23,7 @@
    "updateUrl": "",
    "authorList": ["Kev and coca22COCA"],
    "credits": "Thanks SF",
-   "logoFile": "",
+   "logoFile": "assets/virusmod/textures/virus.png",
    "screenshots": [],
    "dependencies": []
  }
