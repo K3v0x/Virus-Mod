@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class CommonProxy {
     //public static Block FLINT_STONE_BLOCK = new FlintstoneBlock("fredblock");
     public static Block GRASS_VIRUS_BLOCK = new GrassVirusBlock("grassvirus");
+    public static Block WATER_VIRUS_BLOCK = new GrassVirusBlock("watervirus");
 
     public void init(FMLInitializationEvent event){}
     public void preInit(FMLPreInitializationEvent event){}
@@ -30,6 +31,7 @@ public class CommonProxy {
     {
         //event.getRegistry().register(FLINT_STONE_BLOCK);
         event.getRegistry().register(GRASS_VIRUS_BLOCK);
+        event.getRegistry().register(WATER_VIRUS_BLOCK);
     }
 
     @SubscribeEvent
@@ -37,6 +39,7 @@ public class CommonProxy {
     {
         //event.getRegistry().register(new ItemBlock(FLINT_STONE_BLOCK).setRegistryName(FLINT_STONE_BLOCK.getRegistryName()));
         event.getRegistry().register(new ItemBlock(GRASS_VIRUS_BLOCK).setRegistryName(GRASS_VIRUS_BLOCK.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(WATER_VIRUS_BLOCK).setRegistryName(WATER_VIRUS_BLOCK.getRegistryName()));
     }
 
     @SubscribeEvent
@@ -44,6 +47,7 @@ public class CommonProxy {
     {
         //registerRenderer(Item.getItemFromBlock(FLINT_STONE_BLOCK));
         registerRenderer(Item.getItemFromBlock(GRASS_VIRUS_BLOCK));
+        registerRenderer(Item.getItemFromBlock(WATER_VIRUS_BLOCK));
     }
 
     private static void registerRenderer(Item item)
