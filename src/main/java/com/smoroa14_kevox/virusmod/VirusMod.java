@@ -14,7 +14,8 @@ public class VirusMod
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-      int hi = 0;
+        System.out.println("");
+
         // some example code
         System.out.println("DIRT BLOCK >> "+Blocks.DIRT.getUnlocalizedName());
     }
