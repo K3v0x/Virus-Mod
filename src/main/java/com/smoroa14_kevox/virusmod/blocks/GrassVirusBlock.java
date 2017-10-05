@@ -31,6 +31,11 @@ public class GrassVirusBlock extends Block{
     }
 
 
+    public void updateTick(World world, int x, int y, int z, Random rand)
+    {
+        System.out.println("update!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    }
+
 
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, int x, int y, int z, Random rand)
@@ -56,4 +61,5 @@ public class GrassVirusBlock extends Block{
             world.setBlockState(new BlockPos(x+1, y, z-1), world.getBlockState(new BlockPos(x, y, z)));
         }
     }
+
 }
