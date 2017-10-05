@@ -10,9 +10,12 @@
   "variants": {
     "normal": [{
       "textures": {
-        "side": "virusmod:blocks/grassvirus_side",
-        "top": "virusmod:blocks/grassvirus_top",
-        "bottom": "virusmod:blocks/grassvirus_down",
+        "north": "virusmod:blocks/grassvirus_side",
+        "east": "virusmod:blocks/grassvirus_side",
+        "south": "virusmod:blocks/grassvirus_side",
+        "west": "virusmod:blocks/grassvirus_side",
+        "up": "virusmod:blocks/grassvirus_up",
+        "down": "virusmod:blocks/grassvirus_down",
         "end": "blocks/mycelium"
       },
       "model": "cube_column"
