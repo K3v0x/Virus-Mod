@@ -3,6 +3,7 @@ package com.smoroa14_kevox.virusmod.proxy;
 
 import com.smoroa14_kevox.virusmod.VirusMod;
 import com.smoroa14_kevox.virusmod.blocks.GrassVirusBlock;
+import com.smoroa14_kevox.virusmod.blocks.WaterVirusBlock;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -10,6 +11,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -20,7 +22,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class CommonProxy {
     //public static Block FLINT_STONE_BLOCK = new FlintstoneBlock("fredblock");
     public static Block GRASS_VIRUS_BLOCK = new GrassVirusBlock("grassvirus");
-    public static Block WATER_VIRUS_BLOCK = new GrassVirusBlock("watervirus");
+    public static Fluid WATER_VIRUS_FLUID = new WaterVirusBlock("watervirus");
 
     public void init(FMLInitializationEvent event){}
     public void preInit(FMLPreInitializationEvent event){}
@@ -31,7 +33,6 @@ public class CommonProxy {
     {
         //event.getRegistry().register(FLINT_STONE_BLOCK);
         event.getRegistry().register(GRASS_VIRUS_BLOCK);
-        event.getRegistry().register(WATER_VIRUS_BLOCK);
     }
 
     @SubscribeEvent
@@ -39,7 +40,6 @@ public class CommonProxy {
     {
         //event.getRegistry().register(new ItemBlock(FLINT_STONE_BLOCK).setRegistryName(FLINT_STONE_BLOCK.getRegistryName()));
         event.getRegistry().register(new ItemBlock(GRASS_VIRUS_BLOCK).setRegistryName(GRASS_VIRUS_BLOCK.getRegistryName()));
-        event.getRegistry().register(new ItemBlock(WATER_VIRUS_BLOCK).setRegistryName(WATER_VIRUS_BLOCK.getRegistryName()));
     }
 
     @SubscribeEvent
@@ -47,7 +47,6 @@ public class CommonProxy {
     {
         //registerRenderer(Item.getItemFromBlock(FLINT_STONE_BLOCK));
         registerRenderer(Item.getItemFromBlock(GRASS_VIRUS_BLOCK));
-        registerRenderer(Item.getItemFromBlock(WATER_VIRUS_BLOCK));
     }
 
     private static void registerRenderer(Item item)
