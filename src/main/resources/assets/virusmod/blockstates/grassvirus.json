@@ -1,0 +1,20 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "blocks/dirt"
+    },
+    "model": "cube_all",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{
+      "textures": {
+        "side": "blocks/mycelium",
+        "end": "blocks/mycelium"
+      },
+      "model": "cube_column"
+    }],
+    "inventory": [{}]
+  }
+}
