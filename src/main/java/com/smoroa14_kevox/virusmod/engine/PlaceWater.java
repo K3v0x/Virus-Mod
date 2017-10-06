@@ -53,14 +53,14 @@ public class PlaceWater implements Runnable {
     {
         bs = world.getBlockState(new BlockPos(x, y, z));
         try {
-            Thread.sleep(2000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         if(bs.getBlock() == Blocks.AIR)
         {
             world.setBlockState(new BlockPos(x, y, z), CommonProxy.GRASS_VIRUS_BLOCK.getDefaultState());
-            Thread t = new Thread(new PlaceWater(world, x, y, z, count+1));
+            Thread t = new Thread(new PlaceWater(world, x, y, z, ++this.count));
             ts[pos] = t;
             ts[pos].start();
                 /*CommonProxy.WATER_VIRUS_BUCKET.notify();
