@@ -4,6 +4,7 @@ package com.smoroa14_kevox.virusmod.proxy;
 import com.smoroa14_kevox.virusmod.VirusMod;
 import com.smoroa14_kevox.virusmod.blocks.GrassVirusBlock;
 import com.smoroa14_kevox.virusmod.blocks.WaterVirusBlock;
+import com.smoroa14_kevox.virusmod.items.VirusEssence;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -24,6 +25,9 @@ public class CommonProxy {
     public static Block GRASS_VIRUS_BLOCK = new GrassVirusBlock("grassvirus");
     public static Fluid WATER_VIRUS_FLUID = new WaterVirusBlock("watervirus");
 
+
+    public static Item VIRUS_ESSENCE = new VirusEssence("virusessence");
+
     public void init(FMLInitializationEvent event){}
     public void preInit(FMLPreInitializationEvent event){}
     public void postInit(FMLPostInitializationEvent event){}
@@ -40,6 +44,7 @@ public class CommonProxy {
     {
         //event.getRegistry().register(new ItemBlock(FLINT_STONE_BLOCK).setRegistryName(FLINT_STONE_BLOCK.getRegistryName()));
         event.getRegistry().register(new ItemBlock(GRASS_VIRUS_BLOCK).setRegistryName(GRASS_VIRUS_BLOCK.getRegistryName()));
+        event.getRegistry().register(VIRUS_ESSENCE);
     }
 
     @SubscribeEvent
@@ -47,6 +52,7 @@ public class CommonProxy {
     {
         //registerRenderer(Item.getItemFromBlock(FLINT_STONE_BLOCK));
         registerRenderer(Item.getItemFromBlock(GRASS_VIRUS_BLOCK));
+        registerRenderer(VIRUS_ESSENCE );
     }
 
     private static void registerRenderer(Item item)
