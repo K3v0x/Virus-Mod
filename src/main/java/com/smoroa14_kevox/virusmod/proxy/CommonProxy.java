@@ -3,6 +3,7 @@ package com.smoroa14_kevox.virusmod.proxy;
 
 import com.smoroa14_kevox.virusmod.VirusMod;
 import com.smoroa14_kevox.virusmod.blocks.GrassVirusBlock;
+import com.smoroa14_kevox.virusmod.blocks.IceVirusBlock;
 import com.smoroa14_kevox.virusmod.blocks.WaterVirusBlock;
 import com.smoroa14_kevox.virusmod.items.VirusEssence;
 import com.smoroa14_kevox.virusmod.items.WaterVirusBucket;
@@ -25,7 +26,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class CommonProxy {
     //public static Block FLINT_STONE_BLOCK = new FlintstoneBlock("fredblock");
     public static Block GRASS_VIRUS_BLOCK = new GrassVirusBlock("grassvirus");
-    public static Block ICE_VIRUS_BLOCK = new GrassVirusBlock("icevirus");
+    public static Block ICE_VIRUS_BLOCK = new IceVirusBlock("icevirus");
     public static Fluid WATER_VIRUS_FLUID = new WaterVirusBlock("watervirus");
 
     public static Item WATER_VIRUS_BUCKET = new WaterVirusBucket(Blocks.WATER, "watervirusbucket");
