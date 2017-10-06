@@ -12,6 +12,7 @@ public class PlaceWater implements Runnable {
     private int x;
     private int y;
     private int z;
+    private int count = 1;
 
     public PlaceWater(World world, int x, int y, int z) {
 
@@ -21,26 +22,35 @@ public class PlaceWater implements Runnable {
         this.z = z;
     }
 
-    @Override
-    public void run() {
-        Thread[] ts = new Thread[4];
-        IBlockState bs = world.getBlockState(new BlockPos(x+1, y, z));
-        threads(bs,x+1, y, z, ts, 0);
+    public PlaceWater(World world, int x, int y, int z, int count) {
 
-        bs = world.getBlockState(new BlockPos(x-1, y, z));
-        threads(bs,x-1, y, z, ts, 1);
-
-        bs = world.getBlockState(new BlockPos(x, y, z+1));
-        threads(bs,x, y, z+1, ts, 2);
-
-        bs = world.getBlockState(new BlockPos(x, y, z-1));
-        threads(bs,x, y, z-1, ts, 3);
-
+        this.world = world;
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.count = count;
     }
 
-    public void threads(IBlockState bs, int x, int y, int z, Thread[] ts, int pos)
+    @Override
+    public void run() {
+        if(count > 100) {
+            Thread[] ts = new Thread[4];
+            IBlockState bs = world.getBlockState(new BlockPos(x + 1, y, z));
+            threads(bs, x + 1, y, z, ts, 0, count);
+
+            bs = world.getBlockState(new BlockPos(x - 1, y, z));
+            threads(bs, x - 1, y, z, ts, 1, count);
+
+            bs = world.getBlockState(new BlockPos(x, y, z + 1));
+            threads(bs, x, y, z + 1, ts, 2, count);
+
+            bs = world.getBlockState(new BlockPos(x, y, z - 1));
+            threads(bs, x, y, z - 1, ts, 3, count);
+        }
+    }
+
+    public void threads(IBlockState bs, int x, int y, int z, Thread[] ts, int pos, int count)
     {
-        System.out.println(pos + " ---------------------------------------------------------------------------------------------");
         bs = world.getBlockState(new BlockPos(x, y, z));
         try {
             Thread.sleep(2000);
@@ -50,9 +60,9 @@ public class PlaceWater implements Runnable {
         if(bs.getBlock() == Blocks.AIR)
         {
             world.setBlockState(new BlockPos(x, y, z), CommonProxy.GRASS_VIRUS_BLOCK.getDefaultState());
-            Thread t = new Thread(new PlaceWater(world, x, y, z));
+            Thread t = new Thread(new PlaceWater(world, x, y, z, count+1));
             ts[pos] = t;
-                ts[pos].start();
+            ts[pos].start();
                 /*CommonProxy.WATER_VIRUS_BUCKET.notify();
                 try {
                     CommonProxy.WATER_VIRUS_BUCKET.wait();
