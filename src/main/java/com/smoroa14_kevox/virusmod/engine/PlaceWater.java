@@ -23,40 +23,42 @@ public class PlaceWater implements Runnable {
 
     @Override
     public void run() {
-        IBlockState bs = world.getBlockState(new BlockPos(x+1, y, z));
         Thread[] ts = new Thread[4];
-        threads(bs,x, y, z, ts, 0);
+        IBlockState bs = world.getBlockState(new BlockPos(x+1, y, z));
+        threads(bs,x+1, y, z, ts, 0);
+
         bs = world.getBlockState(new BlockPos(x-1, y, z));
+        threads(bs,x-1, y, z, ts, 1);
 
-        threads(bs,x, y, z, ts, 1);
         bs = world.getBlockState(new BlockPos(x, y, z+1));
+        threads(bs,x, y, z+1, ts, 2);
 
-        threads(bs,x, y, z, ts, 2);
         bs = world.getBlockState(new BlockPos(x, y, z-1));
-        threads(bs,x, y, z, ts, 3);
+        threads(bs,x, y, z-1, ts, 3);
 
-        for (Thread t : ts) {
-            if(t != null)
-            {
-                t.start();
-                CommonProxy.WATER_VIRUS_BUCKET.notify();
-                try {
-                    CommonProxy.WATER_VIRUS_BUCKET.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
     }
 
     public void threads(IBlockState bs, int x, int y, int z, Thread[] ts, int pos)
     {
-        bs = world.getBlockState(new BlockPos(x, y, z-1));
+        System.out.println(pos + " ---------------------------------------------------------------------------------------------");
+        bs = world.getBlockState(new BlockPos(x, y, z));
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         if(bs.getBlock() == Blocks.AIR)
         {
-            world.setBlockState(new BlockPos(x, y, z-1), CommonProxy.GRASS_VIRUS_BLOCK.getDefaultState());
-            Thread t = new Thread(new PlaceWater(world, x, y, z-1));
+            world.setBlockState(new BlockPos(x, y, z), CommonProxy.GRASS_VIRUS_BLOCK.getDefaultState());
+            Thread t = new Thread(new PlaceWater(world, x, y, z));
             ts[pos] = t;
+                ts[pos].start();
+                /*CommonProxy.WATER_VIRUS_BUCKET.notify();
+                try {
+                    CommonProxy.WATER_VIRUS_BUCKET.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }*/
         }
     }
 }
